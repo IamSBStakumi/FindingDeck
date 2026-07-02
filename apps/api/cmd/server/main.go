@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 
+	project "github.com/IamSBStakumi/findingdeck/internal/modules/project/interface"
 	"github.com/labstack/echo/v4"
 )
 
@@ -14,6 +15,9 @@ func main() {
 			"status": "ok",
 		})
 	})
+
+	projectHandler := project.NewHTTPHandler()
+	projectHandler.RegisterRoutes(e)
 
 	e.Logger.Fatal(e.Start(":8080"))
 }
