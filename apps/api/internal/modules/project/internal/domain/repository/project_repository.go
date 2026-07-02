@@ -7,7 +7,7 @@ import (
 )
 
 type ProjectRepository interface {
-	Create(ctx context.Context, project *domain.Project) error
-	List(ctx context.Context) ([]*domain.Project, error)
+	Create(ctx context.Context, project domain.Project) error
+	List(ctx context.Context) ([]domain.Project, error)
 	FindByID(ctx context.Context, id string) (*domain.Project, error)
 }
