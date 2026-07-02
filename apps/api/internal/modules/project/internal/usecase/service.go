@@ -2,7 +2,6 @@ package usecase
 
 import (
 	"context"
-	"errors"
 	"strings"
 	"time"
 
@@ -10,8 +9,6 @@ import (
 	"github.com/IamSBStakumi/findingdeck/internal/modules/project/internal/domain/repository"
 	"github.com/google/uuid"
 )
-
-var ErrInvalidProjectInput = errors.New("invalid project input")
 
 type Service struct {
 	repository repository.ProjectRepository
@@ -34,7 +31,7 @@ func (s *Service) Create(ctx context.Context, input CreateProjectInput) (*domain
 	repositoryURL := strings.TrimSpace(input.RepositoryURL)
 
 	if name == "" || repositoryURL == "" {
-		return nil, ErrInvalidProjectInput
+		return nil, domain.ErrInvalidProjectInput
 	}
 
 	now := time.Now().UTC()
