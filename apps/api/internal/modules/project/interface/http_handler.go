@@ -14,7 +14,9 @@ type HTTPHandler struct {
 	service *usecase.Service
 }
 
-func NewHTTPHandler(service *usecase.Service) *HTTPHandler {
+func NewHTTPHandler() *HTTPHandler {
+	service := usecase.NewService(nil) // Replace 'nil' with your actual repository implementation
+
 	return &HTTPHandler{
 		service: service,
 	}
