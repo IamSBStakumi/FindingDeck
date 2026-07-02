@@ -2,7 +2,10 @@ module github.com/IamSBStakumi/findingdeck
 
 go 1.26.4
 
-require github.com/labstack/echo/v4 v4.15.4
+require (
+	github.com/google/uuid v1.6.0
+	github.com/labstack/echo/v4 v4.15.4
+)
 
 require (
 	github.com/labstack/gommon v0.5.0 // indirect
